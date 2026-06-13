@@ -4,7 +4,7 @@
   "private": true,
   "description": "Netlify-hosted AI chat with accounts, admin drafting tools, and persistent conversations",
   "scripts": {
-    "build": "npm test",
+    "build": "node tools/guard-production.js && npm test",
     "check:js": "node --check netlify/functions/_lib.js && node --check netlify/functions/api.js",
     "check:site": "node tools/check-site.js",
     "test:unit": "node --test test/*.test.js",

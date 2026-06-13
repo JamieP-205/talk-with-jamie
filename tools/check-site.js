@@ -58,7 +58,14 @@ for (const route of routes) {
 }
 if (/\/home\/|Downloads[\\/]/i.test(config)) errors.push("netlify.toml contains a machine-specific path");
 
-for (const required of ["favicon.svg", "jamie-avatar.jpg", "netlify/functions/api.js", "netlify/functions/_lib.js"]) {
+for (const required of [
+  "favicon.svg",
+  "jamie-avatar.jpg",
+  "MIGRATION.md",
+  "netlify/functions/api.js",
+  "netlify/functions/_lib.js",
+  "tools/guard-production.js"
+]) {
   const file = path.join(root, required);
   if (!fs.existsSync(file) || fs.statSync(file).size === 0) errors.push(`${required} is missing or empty`);
 }

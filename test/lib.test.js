@@ -1,5 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const { spawnSync } = require("node:child_process");
+const path = require("node:path");
 
 process.env.SESSION_SECRET = "test-session-secret-that-is-longer-than-thirty-two-characters";
 
@@ -47,4 +49,20 @@ test("message cleaning limits roles, content, and history", () => {
 
 test("text cleaning removes control characters and enforces limits", () => {
   assert.equal(cleanText(" a\u0000b ", 2), "ab");
+});
+
+test("production deploys are blocked until migration approval is explicit", () => {
+  const script = path.join(__dirname, "..", "tools", "guard-production.js");
+  const blocked = spawnSync(process.execPath, [script], {
+    env: { ...process.env, CONTEXT: "production", ALLOW_TALK_BACKEND_REPLACEMENT: "" },
+    encoding: "utf8"
+  });
+  assert.equal(blocked.status, 1);
+  assert.match(blocked.stderr, /Production deployment blocked/);
+
+  const approved = spawnSync(process.execPath, [script], {
+    env: { ...process.env, CONTEXT: "production", ALLOW_TALK_BACKEND_REPLACEMENT: "1" },
+    encoding: "utf8"
+  });
+  assert.equal(approved.status, 0);
 });

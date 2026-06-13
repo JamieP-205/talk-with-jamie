@@ -1,8 +1,14 @@
 # Talk With Jamie
 
-[![CI](https://github.com/jamieparr05/talk-with-jamie/actions/workflows/ci.yml/badge.svg)](https://github.com/jamieparr05/talk-with-jamie/actions/workflows/ci.yml)
-
 Private-by-default Netlify application for a clearly disclosed “AI Jamie” chat experience. It supports registered and guest sessions, persistent chat history, an administrator conversation viewer, and an administrator-only reply drafting workspace.
+
+Live site: [talkwithjamie.netlify.app](https://talkwithjamie.netlify.app/)
+
+## Production status
+
+The live site is configured and working. The folder originally supplied for this repository contained the production client and generated Netlify configuration, but not the deployed function source or private data files. This repository therefore includes a reviewed replacement backend that implements the same public route contract.
+
+Do not connect this repository to the existing production site until the migration in [MIGRATION.md](MIGRATION.md) is complete. A production build guard prevents an accidental replacement.
 
 ## Architecture
 
@@ -32,13 +38,15 @@ Optional:
 
 - `JAMIE_SYSTEM_PROMPT`: custom public-chat behaviour, up to 8,000 characters
 
-## First deployment
+## Replacement-backend deployment
 
-1. Add the required environment variables in Netlify.
-2. Deploy the repository.
-3. Open the site and complete first-run setup with `ADMIN_SETUP_TOKEN`.
-4. Remove or rotate `ADMIN_SETUP_TOKEN` after setup.
-5. Sign out and verify admin login with username `jamie`.
+1. Complete the production migration checklist.
+2. Add the required environment variables in Netlify.
+3. Set `ALLOW_TALK_BACKEND_REPLACEMENT=1` only after backups and migration testing are complete.
+4. Deploy to a separate Netlify test site first.
+5. Complete first-run setup with `ADMIN_SETUP_TOKEN`.
+6. Remove or rotate `ADMIN_SETUP_TOKEN` after setup.
+7. Sign out and verify admin login with username `jamie`.
 
 ## Local checks
 
