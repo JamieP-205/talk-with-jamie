@@ -11,7 +11,7 @@
     "test": "npm run check:js && npm run check:site && npm run test:unit"
   },
   "dependencies": {
-    "@netlify/blobs": "^9.1.0"
+    "@netlify/blobs": "^10.7.9"
   },
   "engines": {
     "node": ">=20"
