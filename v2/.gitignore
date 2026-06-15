@@ -1,0 +1,10 @@
+node_modules/
+.netlify/
+private-context/
+*.context-pack.json
+.env
+.env.*
+!.env.example
+npm-debug.log*
+.DS_Store
+Thumbs.db

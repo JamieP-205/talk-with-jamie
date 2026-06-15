@@ -1,0 +1,21 @@
+{
+  "name": "talk-with-jamie-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Privacy-conscious personal AI chat with private context retrieval on Netlify",
+  "scripts": {
+    "build": "npm test",
+    "context:build": "node tools/build-private-context.js",
+    "check:js": "node --check app.js && node --check netlify/functions/_context.js && node --check netlify/functions/_persona.js && node --check netlify/functions/_lib.js && node --check netlify/functions/api.js && node --check tools/build-private-context.js",
+    "check:site": "node tools/check-site.js",
+    "test:unit": "node --test test/*.test.js",
+    "test": "npm run check:js && npm run check:site && npm run test:unit"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.7.9",
+    "bcryptjs": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,56 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Talk With Jamie architecture</title>
+  <desc id="desc">Architecture diagram showing public users, admin tools, Netlify Functions, storage, private context and the AI provider.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 800 34px Segoe UI, Arial, sans-serif; fill: #111827; }
+      .label { font: 800 19px Segoe UI, Arial, sans-serif; fill: #111827; }
+      .small { font: 16px Segoe UI, Arial, sans-serif; fill: #4b5563; }
+      .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 2; rx: 18; }
+      .accent { fill: #f5f3ff; stroke: #c4b5fd; stroke-width: 2; rx: 18; }
+      .safe { fill: #ecfdf5; stroke: #86efac; stroke-width: 2; rx: 16; }
+      .line { stroke: #7c3aed; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="560"/>
+  <text class="title" x="600" y="66" text-anchor="middle">Talk With Jamie Architecture</text>
+
+  <rect class="box" x="75" y="170" width="205" height="105"/>
+  <text class="label" x="178" y="210" text-anchor="middle">Public user</text>
+  <text class="small" x="178" y="238" text-anchor="middle">Guest/account chat</text>
+
+  <rect class="box" x="75" y="335" width="205" height="105"/>
+  <text class="label" x="178" y="375" text-anchor="middle">Admin</text>
+  <text class="small" x="178" y="403" text-anchor="middle">Private review tools</text>
+
+  <rect class="accent" x="390" y="248" width="245" height="120"/>
+  <text class="label" x="513" y="290" text-anchor="middle">Netlify Functions</text>
+  <text class="small" x="513" y="318" text-anchor="middle">Auth, rate limits, API</text>
+
+  <rect class="box" x="735" y="135" width="220" height="100"/>
+  <text class="label" x="845" y="173" text-anchor="middle">Netlify Blobs</text>
+  <text class="small" x="845" y="201" text-anchor="middle">Users and chats</text>
+
+  <rect class="box" x="735" y="290" width="220" height="100"/>
+  <text class="label" x="845" y="328" text-anchor="middle">Private context</text>
+  <text class="small" x="845" y="356" text-anchor="middle">Redacted profile data</text>
+
+  <rect class="accent" x="1000" y="248" width="150" height="105"/>
+  <text class="label" x="1075" y="286" text-anchor="middle">AI provider</text>
+  <text class="small" x="1075" y="314" text-anchor="middle">Response model</text>
+
+  <path class="line" d="M280 222 C330 222 340 285 390 285"/>
+  <path class="line" d="M280 388 C330 388 340 330 390 330"/>
+  <path class="line" d="M635 288 C680 255 695 185 735 185"/>
+  <path class="line" d="M635 325 C680 335 695 340 735 340"/>
+  <path class="line" d="M635 306 H1000"/>
+
+  <rect class="safe" x="335" y="455" width="570" height="70"/>
+  <text class="label" x="620" y="485" text-anchor="middle">Clear AI disclosure and privacy controls</text>
+  <text class="small" x="620" y="512" text-anchor="middle">Chats are stored for admin review; raw personal exports are not committed.</text>
+</svg>

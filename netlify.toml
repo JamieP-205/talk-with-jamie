@@ -1,0 +1,127 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  command = "npm run build"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; upgrade-insecure-requests"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0"
+
+[[headers]]
+  for = "/jamie-avatar.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[redirects]]
+  from = "/api/setup-status"
+  to = "/.netlify/functions/api?route=setup-status"
+  status = 200
+
+[[redirects]]
+  from = "/api/setup"
+  to = "/.netlify/functions/api?route=setup"
+  status = 200
+
+[[redirects]]
+  from = "/api/register"
+  to = "/.netlify/functions/api?route=register"
+  status = 200
+
+[[redirects]]
+  from = "/api/login"
+  to = "/.netlify/functions/api?route=login"
+  status = 200
+
+[[redirects]]
+  from = "/api/guest-login"
+  to = "/.netlify/functions/api?route=guest-login"
+  status = 200
+
+[[redirects]]
+  from = "/api/logout"
+  to = "/.netlify/functions/api?route=logout"
+  status = 200
+
+[[redirects]]
+  from = "/api/me"
+  to = "/.netlify/functions/api?route=me"
+  status = 200
+
+[[redirects]]
+  from = "/api/public-thread"
+  to = "/.netlify/functions/api?route=public-thread"
+  status = 200
+
+[[redirects]]
+  from = "/api/public-chat"
+  to = "/.netlify/functions/api?route=public-chat"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-chat"
+  to = "/.netlify/functions/api?route=admin-chat"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-contacts"
+  to = "/.netlify/functions/api?route=admin-contacts"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-save-contacts"
+  to = "/.netlify/functions/api?route=admin-save-contacts"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-public-conversations"
+  to = "/.netlify/functions/api?route=admin-public-conversations"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-public-conversation"
+  to = "/.netlify/functions/api?route=admin-public-conversation"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-delete-public-conversation"
+  to = "/.netlify/functions/api?route=admin-delete-public-conversation"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-block-user"
+  to = "/.netlify/functions/api?route=admin-block-user"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-unblock-user"
+  to = "/.netlify/functions/api?route=admin-unblock-user"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
