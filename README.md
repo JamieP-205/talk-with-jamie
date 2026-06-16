@@ -8,7 +8,7 @@ The public experiment is available at [talkwithjamie.netlify.app](https://talkwi
 
 ## Status
 
-**Experimental, active development** â€“ this is a personal AI chat experiment. Features and privacy controls continue to evolve.
+**Experimental, active development** this is a personal AI chat experiment. Features and privacy controls continue to evolve.
 
 ## Summary
 
@@ -31,7 +31,7 @@ The app uses a static frontend served by Netlify alongside a serverless backend.
 | --- |
 | ![Talk With Jamie architeure](talk-architecture.svg) |
 
-## Privacyâ€‘first design choices
+## Privacy first design choices
 
 - Raw personal exports and private source files are **never** committed or deployed
 - A compact, redacted context pack is generated locally and imported into a private Netlify Blob
