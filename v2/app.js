@@ -284,12 +284,12 @@ async function setupAdmin(event) {
 function renderAuth() {
   const loginActive = state.authMode === "login";
   app.innerHTML = `
-    <main class="app">
+    <main class="app auth-main">
       <header class="header">
         ${avatar()}
         <div class="title">
           <h1>Jamie</h1>
-          <p>Log in, create an account, or continue as a guest to try a clearly disclosed AI chat that replies in a Jamie-like style.</p>
+          <p>Choose how you want to start. You can log in, create an account, or continue as a guest.</p>
         </div>
         ${themeButton()}
       </header>

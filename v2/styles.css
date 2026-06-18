@@ -813,3 +813,119 @@ select,
   color: #111827 !important;
   border-color: #d1d5db !important;
 }
+/* Talk With Jamie final auth layout */
+.auth-main {
+  min-height: calc(100vh - 80px) !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: clamp(2rem, 7vh, 4rem) 1rem !important;
+  overflow: auto !important;
+}
+
+.auth-main > .row.them {
+  display: none !important;
+}
+
+.auth-main .card {
+  width: min(520px, calc(100vw - 2rem)) !important;
+  margin: 0 auto !important;
+  padding: 1.45rem !important;
+  border-radius: 28px !important;
+  background: #111827 !important;
+  border: 1px solid #273348 !important;
+  box-shadow: none !important;
+}
+
+.auth-main .tabs {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.45rem !important;
+  margin: 0 0 1rem !important;
+  padding: 0.35rem !important;
+  border-radius: 20px !important;
+  background: #0b1019 !important;
+  border: 1px solid #273348 !important;
+}
+
+.auth-main .tabs button {
+  min-height: 46px !important;
+  border-radius: 15px !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #aebbd0 !important;
+}
+
+.auth-main .tabs button.active-tab {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #ffffff !important;
+}
+
+.auth-main .stack {
+  display: grid !important;
+  gap: 0.8rem !important;
+  margin-top: 0 !important;
+}
+
+.auth-main .input {
+  min-height: 54px !important;
+  border-radius: 17px !important;
+  background: #111827 !important;
+  color: #ffffff !important;
+  border: 1px solid #273348 !important;
+}
+
+.auth-main .btn {
+  min-height: 54px !important;
+  border-radius: 17px !important;
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+  color: #ffffff !important;
+}
+
+.auth-main .full-width-action {
+  min-height: 52px !important;
+  margin-top: 0.1rem !important;
+  border-radius: 17px !important;
+  background: transparent !important;
+  border: 1px solid #7c3aed !important;
+  color: #d8c8ff !important;
+}
+
+.auth-main .auth-hint {
+  margin: 1rem 0 0 !important;
+  color: #94a3b8 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+}
+
+:root[data-theme="light"] .auth-main .card {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+}
+
+:root[data-theme="light"] .auth-main .tabs {
+  background: #eef2f7 !important;
+  border-color: #d1d5db !important;
+}
+
+:root[data-theme="light"] .auth-main .tabs button {
+  color: #4b5563 !important;
+}
+
+:root[data-theme="light"] .auth-main .tabs button.active-tab {
+  background: #7c3aed !important;
+  color: #ffffff !important;
+}
+
+:root[data-theme="light"] .auth-main .input {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+:root[data-theme="light"] .auth-main .full-width-action {
+  background: transparent !important;
+  color: #5b21b6 !important;
+  border-color: #7c3aed !important;
+}
