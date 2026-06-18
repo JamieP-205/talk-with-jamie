@@ -294,8 +294,8 @@ function renderAuth() {
         ${themeButton()}
       </header>
       <section class="messages">
-        <div class="row them"><div class="bubble them">Hey</div></div>
-        <div class="row them"><div class="bubble them">Make an account to keep the chat, or continue as a guest.</div></div>
+        <div class="row them"><div class="bubble them">Hey, I am AI Jamie.</div></div>
+        <div class="row them"><div class="bubble them">This is AI Jamie: a small chat project that replies in a Jamie-like style. You can log in to keep chats, create an account, or continue as a guest.</div></div>
         <div class="card">
           <div class="tabs">
             <button class="ghost ${loginActive ? "active-tab" : ""}" type="button" data-action="auth-mode" data-mode="login">Log in</button>
@@ -405,10 +405,10 @@ function messageRows() {
   let html = "";
 
   if (!messages.length) {
-    html += '<div class="row them"><div class="bubble them">Hey</div></div>';
+    html += '<div class="row them"><div class="bubble them">Hey, I am AI Jamie.</div></div>';
     html += state.me?.role === "admin"
       ? '<div class="row them"><div class="bubble them">Private twin chat. Your deeper context is available here only.</div></div>'
-      : '<div class="row them"><div class="bubble them">This is AI Jamie, just so it’s clear.</div></div>';
+      : '<div class="row them"><div class="bubble them">This is a small AI chat project built to respond in a Jamie-like style. You can ask questions, try a conversation, or log in to keep previous chats.</div></div>';
   }
 
   for (const message of messages) {

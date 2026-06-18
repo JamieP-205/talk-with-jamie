@@ -670,3 +670,249 @@ select {
     font-size: 15px;
   }
 }
+/* Talk With Jamie final deploy visual override */
+:root {
+  --talk-final-deploy-visual-override: 1;
+  --twj-bg: #070b12;
+  --twj-panel: #111827;
+  --twj-border: #263246;
+  --twj-text: #f4f7fb;
+  --twj-muted: #9ca8ba;
+  --twj-purple: #7c3aed;
+  --twj-purple-hover: #8b5cf6;
+}
+
+/* Remove the broken gradient look */
+html,
+body,
+#app,
+.app,
+main,
+section,
+.chat,
+.chat-shell,
+.chat-main,
+.chat-page,
+.messages,
+.message-list,
+.thread,
+.conversation {
+  background: var(--twj-bg) !important;
+  background-color: var(--twj-bg) !important;
+  background-image: none !important;
+  color: var(--twj-text) !important;
+}
+
+*,
+*::before,
+*::after {
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+body::before,
+body::after,
+#app::before,
+#app::after,
+.app::before,
+.app::after,
+main::before,
+main::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Header */
+header,
+.topbar,
+.app-header {
+  background: var(--twj-bg) !important;
+  background-color: var(--twj-bg) !important;
+  background-image: none !important;
+  border-bottom: 1px solid #1f2937 !important;
+}
+
+/* Centre the login/register/guest screen */
+main.auth,
+.auth,
+.auth-screen,
+.login-screen,
+.account-screen,
+.auth-wrap,
+.auth-wrapper,
+.auth-container,
+.login-container {
+  min-height: calc(100vh - 80px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem !important;
+}
+
+.auth-card,
+.auth-panel,
+.login-card,
+.account-card,
+.form-card,
+form[data-form="auth"],
+.stack[data-form="auth"] {
+  width: min(100%, 560px) !important;
+  margin: 0 auto !important;
+  background: var(--twj-panel) !important;
+  background-color: var(--twj-panel) !important;
+  background-image: none !important;
+  border: 1px solid var(--twj-border) !important;
+  border-radius: 24px !important;
+  padding: 1.5rem !important;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  background: var(--twj-panel) !important;
+  background-color: var(--twj-panel) !important;
+  background-image: none !important;
+  color: var(--twj-text) !important;
+  border: 1px solid var(--twj-border) !important;
+  box-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--twj-muted) !important;
+}
+
+/* All buttons: solid purple, no gradient */
+button,
+.btn,
+.ghost,
+.danger,
+.link-button,
+input[type="submit"],
+input[type="button"],
+[role="button"],
+a.button,
+a.btn {
+  background: var(--twj-purple) !important;
+  background-color: var(--twj-purple) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid var(--twj-purple) !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+button:hover,
+.btn:hover,
+.ghost:hover,
+.danger:hover,
+.link-button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+[role="button"]:hover,
+a.button:hover,
+a.btn:hover {
+  background: var(--twj-purple-hover) !important;
+  background-color: var(--twj-purple-hover) !important;
+  border-color: var(--twj-purple-hover) !important;
+  transform: none !important;
+}
+
+/* User bubbles: solid purple */
+.row.me .bubble,
+.bubble.me,
+.message.user,
+.user-message,
+.message--user,
+[data-role="user"],
+[data-author="user"],
+[class*="user-message"],
+[class*="message-user"],
+[class*="bubble-user"] {
+  background: var(--twj-purple) !important;
+  background-color: var(--twj-purple) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid var(--twj-purple) !important;
+}
+
+/* Assistant bubbles */
+.row.them .bubble,
+.bubble.them,
+.message.assistant,
+.assistant-message,
+.message--assistant,
+[data-role="assistant"],
+[data-author="assistant"],
+[class*="assistant-message"],
+[class*="message-assistant"],
+[class*="bubble-assistant"] {
+  background: var(--twj-panel) !important;
+  background-color: var(--twj-panel) !important;
+  background-image: none !important;
+  color: var(--twj-text) !important;
+  border: 1px solid #1f2937 !important;
+}
+
+/* Chat selector / saved chat control */
+select,
+.chat-select,
+.chat-switcher,
+.chat-controls,
+.conversation-controls {
+  max-width: 640px !important;
+}
+
+/* Composer */
+.composer,
+.message-form,
+.input-bar,
+footer {
+  background: var(--twj-bg) !important;
+  background-color: var(--twj-bg) !important;
+  background-image: none !important;
+  border-top: 1px solid #1f2937 !important;
+}
+
+/* Light mode */
+html[data-theme="light"],
+body.light,
+.light {
+  --twj-bg: #f6f7fb;
+  --twj-panel: #ffffff;
+  --twj-border: #d9e0ec;
+  --twj-text: #111827;
+  --twj-muted: #647084;
+}
+
+html[data-theme="light"],
+html[data-theme="light"] body,
+html[data-theme="light"] #app,
+html[data-theme="light"] .app,
+html[data-theme="light"] main,
+body.light,
+body.light #app,
+body.light .app,
+body.light main {
+  background: var(--twj-bg) !important;
+  background-color: var(--twj-bg) !important;
+  background-image: none !important;
+  color: var(--twj-text) !important;
+}
+
+@media (max-width: 720px) {
+  main.auth,
+  .auth,
+  .auth-screen,
+  .login-screen,
+  .account-screen,
+  .auth-wrap,
+  .auth-wrapper,
+  .auth-container,
+  .login-container {
+    padding: 1rem !important;
+    align-items: flex-start !important;
+    padding-top: 5rem !important;
+  }
+}
