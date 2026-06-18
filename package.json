@@ -15,5 +15,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "overrides": {
+    "@opentelemetry/core": "2.8.0"
   }
 }
