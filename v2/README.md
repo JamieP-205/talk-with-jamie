@@ -15,7 +15,7 @@ out of GitHub.
 - Multiple persistent chats per account, with create, switch and delete controls
 - Direct OpenAI Responses API support with a configurable model
 - A local context builder that joins both sides of social conversations while keeping raw exports local
-- Cross-platform alias merging and relationship dossiers for recurring contacts
+- Cross-platform alias merging and context notes for recurring contacts
 - Verified owner facts and recency-aware handling for changing views
 - Redaction and exclusion rules for credentials, financial identifiers and high-risk content
 - Deployment-only context maintenance; the live admin interface cannot replace or delete the pack

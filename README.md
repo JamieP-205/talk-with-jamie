@@ -13,8 +13,7 @@ The public experiment is available at [talkwithjamie.netlify.app](https://talkwi
 ## Summary
 
 Version 2 also supports one-time migration of legacy account hashes, conversations, and admin
-threads, multiple persistent chats per account, and cross-platform relationship dossiers built
-from locally held source exports. Its own deployment and privacy instructions are in
+threads, multiple persistent chats per account, and contact-specific context notes built from locally held source exports. Its own deployment and privacy instructions are in
 [`v2/README.md`](v2/README.md).
 
 Talk With Jamie is a clearly disclosed AI chat experiment with optional accounts, guest sessions, persistent conversations and private administration tools. The app identifies itself as AI and warns users not to submit sensitive information. It persists conversations for registered and guest users, supports rate limiting, provides an admin dashboard and can switch between OpenAI-compatible and Cohere providers.
@@ -29,16 +28,16 @@ The app uses a static frontend served by Netlify alongside a serverless backend.
 
 | Talk With Jamie architecture |
 | --- |
-| ![Talk With Jamie architeure](talk-architecture.svg) |
+| ![Talk With Jamie architecture](talk-architecture.svg) |
 
 ## Privacy first design choices
 
 - Raw personal exports and private source files are **never** committed or deployed
 - A compact, redacted context pack is generated locally and imported into a private Netlify Blob
-- Adminâ€‘only context is stored serverâ€‘side; public users receive only publicâ€‘safe context
+- Admin-only context is stored server-side; public users receive only public-safe context
 - The interface identifies itself as AI and warns users not to submit sensitive information
 - Sessions use signed `HttpOnly` cookies with `SameSite=Strict`, and passwords are hashed with scrypt
-- Requests are sizeâ€‘limited, cleaned, sameâ€‘origin checked and rateâ€‘limited per route
+- Requests are size-limited, cleaned, same-origin checked and rate-limited per route
 
 ## What I built
 
@@ -47,24 +46,24 @@ The app uses a static frontend served by Netlify alongside a serverless backend.
 - Scrypt password hashing
 - Persistent users, conversations, contacts and rate limits with Netlify Blobs
 - A private conversation viewer with block and deletion controls
-- A private drafting workspace for contactâ€‘specific reply ideas
+- A private drafting workspace for contact-specific reply ideas
 - Configurable OpenAI-compatible or Cohere model providers
-- Request size limits, input cleaning, sameâ€‘origin checks and routeâ€‘specific rate limits
-- Automated unit, syntax, deploymentâ€‘guard and siteâ€‘structure tests
+- Request size limits, input cleaning, same-origin checks and route-specific rate limits
+- Automated unit, syntax, deployment-guard and site-structure tests
 
 ## Key files
 
-- `index.html` â€“ frontend shell and metadata
-- `styles.css` â€“ responsive public and admin interface styles
-- `app.js` â€“ client state, rendering and API requests
-- `netlify/functions/api.js` â€“ Netlify Function entry point
-- `netlify/functions/_lib.js` â€“ authentication, storage, validation, provider and route logic
-- `test/` â€“ unit tests for securityâ€‘sensitive helpers and deployment controls
-- `tools/` â€“ site validation and production migration guard
+- `index.html` � frontend shell and metadata
+- `styles.css` � responsive public and admin interface styles
+- `app.js` � client state, rendering and API requests
+- `netlify/functions/api.js` � Netlify Function entry point
+- `netlify/functions/_lib.js` � authentication, storage, validation, provider and route logic
+- `test/` � unit tests for security-sensitive helpers and deployment controls
+- `tools/` � site validation and production migration guard
 
 ## Technical approach
 
-The frontend is a lightweight static site that communicates with a single Netlify Function. Authentication is handled via signed, sameâ€‘site cookies; passwords use scrypt. The function uses a modular library for storage, validation and provider logic. Conversations and user records live in Netlify Blobs. A locally generated, redacted context pack helps the model produce replies that reflect my tone without exposing raw messages. The project is tested with unit and integration tests and guarded with a production migration flag to prevent accidental data loss.
+The frontend is a lightweight static site that communicates with a single Netlify Function. Authentication is handled via signed, same-site cookies; passwords use scrypt. The function uses a modular library for storage, validation and provider logic. Conversations and user records live in Netlify Blobs. A locally generated, redacted context pack helps the model produce replies that reflect my tone without exposing raw messages. The project is tested with unit and integration tests and guarded with a production migration flag to prevent accidental data loss.
 
 ## Deployment
 
@@ -91,12 +90,12 @@ Chats are stored and visible to the administrator. The application warns users n
 
 ## What I learned
 
-This project taught me how to build a privacyâ€‘conscious AI chat application from scratch. I learned to design authentication and rateâ€‘limiting for anonymous and registered users, implement storage with Netlify Blobs, manage serverless functions and context packs, and be transparent with users about data collection. It also reinforced the importance of migration planning when evolving a live application.
+This project taught me how to build a privacy-conscious AI chat application from scratch. I learned to design authentication and rate-limiting for anonymous and registered users, implement storage with Netlify Blobs, manage serverless functions and context packs, and be transparent with users about data collection. It also reinforced the importance of migration planning when evolving a live application.
 
 ## Future improvements
 
 - Continue refining version 2 retrieval quality and relationship summaries
-- Add clientâ€‘side accessibility enhancements for screenâ€‘reader users
-- Explore additional AI providers and experiment with retrievalâ€‘augmented generation
+- Add client-side accessibility enhancements for screen-reader users
+- Explore additional AI providers and experiment with retrieval based responses
 - Build analytics dashboards to understand usage patterns while respecting user privacy
 

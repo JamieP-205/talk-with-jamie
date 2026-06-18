@@ -871,7 +871,7 @@ const LIFE_AREAS = [
   ["politics", "Political and social opinions", /\b(?:politic|government|protest|immigration|foreigners|war|election|labour|tory|left wing|right wing|marxist|bill|law)\b/i],
   ["worries", "Fears, worries and difficult decisions", /\b(?:worried|worry|scared|fear|stress|risk|wrong decision|not sure|double check|problem|broke|scam|trust)\b/i],
   ["hobbies", "Hobbies, media and entertainment", /\b(?:movie|film|show|series|music|song|album|concert|game|gaming|minecraft|anime|marvel|daredevil|invincible|black mirror|rock)\b/i],
-  ["technology", "Technology, projects and digital habits", /\b(?:technology|tech|coding|code|website|project|ai|assistant|gemini|linux|android|samsung|laptop|phone|cyber|automation)\b/i],
+  ["technology", "Technology, projects and digital habits", /\b(?:technology|tech|coding|code|website|project|ai|assistant|google_takeout|linux|android|samsung|laptop|phone|cyber|automation)\b/i],
   ["places", "Places, housing, travel and movement", /\b(?:belfast|newry|warrenpoint|house|move|rent|travel|trip|bus|train|town|home)\b/i]
 ];
 
@@ -974,7 +974,7 @@ const STYLE_MODES = [
     key: "detailed",
     title: "Detailed technical and decision messages",
     tags: ["detailed", "technical", "decision", "research", "compare", "explain", "project"],
-    filter: (record) => ["assistant_export", "gemini"].includes(record.platform) && record.text.length >= 180
+    filter: (record) => ["assistant_export", "google_takeout"].includes(record.platform) && record.text.length >= 180
   }
 ];
 
@@ -1031,15 +1031,15 @@ function whatsappChunks() {
   return chunks;
 }
 
-function geminiChunks(master) {
+function googleTakeoutChunks(master) {
   const section = masterSection(
     master,
-    "### 8.5 Gemini / Google Takeout raw extracted text",
+    "### 8.5 Google Takeout raw extracted text",
     "### 8.6 Instagram raw extracted text files"
   );
   const chunks = [];
   for (const item of fencedSections(section)) {
-    if (!item.title.includes("Gemini in Workspace/Conversation History/")) continue;
+    if (!item.title.includes("Google Takeout conversation history/")) continue;
     let conversation;
     try {
       conversation = JSON.parse(item.text);
@@ -1051,16 +1051,16 @@ function geminiChunks(master) {
       .filter(Boolean);
     for (let index = 0; index < prompts.length; index += 1) {
       chunks.push({
-        id: `gemini-${chunks.length + 1}`,
-        title: `Jamie Gemini request: ${safeText(conversation.title || "Untitled", 120)}`,
+        id: `google_takeout-${chunks.length + 1}`,
+        title: `Jamie Google export request: ${safeText(conversation.title || "Untitled", 120)}`,
         type: "long-form-style",
         audience: "admin",
-        tags: ["gemini", "authored", "technical", "decision", ...sourceTags(conversation.title)],
+        tags: ["google_takeout", "authored", "technical", "decision", ...sourceTags(conversation.title)],
         text: prompts[index]
       });
     }
   }
-  return chunks.slice(0, PLATFORM_CHUNK_LIMITS.gemini);
+  return chunks.slice(0, PLATFORM_CHUNK_LIMITS.googleTakeout);
 }
 
 function instagramChunks(master) {
@@ -1219,7 +1219,7 @@ module.exports = {
   diverseEvidence,
   facebookChunks,
   fencedSections,
-  geminiChunks,
+  googleTakeoutChunks,
   groupedMessageChunks,
   instagramChunks,
   lifeAreaChunks,

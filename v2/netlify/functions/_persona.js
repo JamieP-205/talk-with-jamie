@@ -35,7 +35,7 @@ const PUBLIC_PERSONA_CHUNKS = [
     type: "interests",
     audience: "public",
     tags: [
-      "technology", "tech", "ai", "assistant tools", "gemini", "coding", "cybersecurity",
+      "technology", "tech", "ai", "assistant tools", "google_takeout", "coding", "cybersecurity",
       "linux", "android", "samsung", "phone", "laptop", "automation"
     ],
     text: [
