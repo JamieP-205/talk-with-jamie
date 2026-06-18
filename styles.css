@@ -610,3 +610,320 @@ select {
     font-size: 15px;
   }
 }
+/* Talk With Jamie interface polish */
+:root {
+  --talk-interface-polish: 1;
+  --bg: #070b12;
+  --panel: #111827;
+  --panel-soft: #0d1320;
+  --border: #263246;
+  --text: #f4f7fb;
+  --muted: #9ca8ba;
+  --purple: #7c3aed;
+  --purple-hover: #8b5cf6;
+  --purple-dark: #5b21b6;
+}
+
+/* Remove gradients and make the app feel cleaner */
+html,
+body,
+#app,
+.app,
+.page,
+.screen,
+.chat-shell,
+.chat-page,
+.chat-layout,
+.chat-main,
+.main,
+main {
+  background: var(--bg) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+}
+
+/* Header */
+header,
+.topbar,
+.app-header,
+.chat-header {
+  background: #070b12 !important;
+  background-image: none !important;
+  border-bottom: 1px solid #1f2937 !important;
+  box-shadow: none !important;
+}
+
+/* Remove big purple/blue glow areas */
+body::before,
+body::after,
+.app::before,
+.app::after,
+.chat-shell::before,
+.chat-shell::after,
+.chat-main::before,
+.chat-main::after {
+  display: none !important;
+}
+
+/* Generic panels/cards */
+.card,
+.panel,
+.auth-card,
+.auth-panel,
+.login-card,
+.account-card,
+.form-card,
+.modal,
+.dialog,
+.chat-picker,
+.chat-select,
+.chat-switcher,
+.chat-controls,
+.conversation-controls {
+  background: var(--panel) !important;
+  background-image: none !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Centre login/create account/guest screen */
+.auth-screen,
+.login-screen,
+.account-screen,
+.auth-wrap,
+.auth-wrapper,
+.auth-container,
+.login-container,
+.onboarding,
+.guest-gate,
+.sign-in-panel {
+  min-height: calc(100vh - 90px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem !important;
+}
+
+.auth-card,
+.auth-panel,
+.login-card,
+.account-card,
+.form-card,
+.guest-gate > div,
+.sign-in-panel > div {
+  width: min(100%, 520px) !important;
+  margin: 0 auto !important;
+}
+
+/* If the login form is just a direct form, centre it without affecting message forms */
+main > form:not(.composer):not(.message-form),
+#app > form:not(.composer):not(.message-form) {
+  width: min(100%, 520px) !important;
+  margin: 12vh auto 0 !important;
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 24px !important;
+  padding: 1.5rem !important;
+}
+
+/* Chat layout */
+.chat-shell,
+.chat-page,
+.chat-layout {
+  min-height: calc(100vh - 78px) !important;
+}
+
+.chat-main,
+.messages,
+.message-list,
+.chat-messages,
+.thread,
+.conversation {
+  background: var(--bg) !important;
+  background-image: none !important;
+}
+
+/* Make old chats / new chat controls more usable */
+.chat-controls,
+.conversation-controls,
+.chat-switcher,
+.chat-picker,
+.chat-select-row,
+.history-controls {
+  width: min(100%, 640px) !important;
+  margin: 1.25rem 1rem !important;
+  display: flex !important;
+  gap: .75rem !important;
+  align-items: center !important;
+}
+
+select,
+.chat-select select,
+.conversation-controls select,
+.chat-switcher select {
+  width: min(100%, 520px) !important;
+  min-height: 48px !important;
+  background: var(--panel) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  padding: 0 .95rem !important;
+  box-shadow: none !important;
+}
+
+/* Inputs */
+input,
+textarea {
+  background: var(--panel) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted) !important;
+}
+
+/* Buttons - solid purple, no gradients */
+button,
+.button,
+.btn,
+input[type="submit"],
+[role="button"] {
+  background: var(--purple) !important;
+  background-image: none !important;
+  color: #fff !important;
+  border: 1px solid var(--purple) !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+[role="button"]:hover {
+  background: var(--purple-hover) !important;
+  border-color: var(--purple-hover) !important;
+  transform: none !important;
+}
+
+/* Secondary buttons still purple themed, not grey/gradient */
+button.secondary,
+button.ghost,
+.btn.secondary,
+.btn.ghost,
+.outline,
+.create-account,
+.guest-button {
+  background: transparent !important;
+  color: #c4b5fd !important;
+  border: 1px solid #6d28d9 !important;
+}
+
+button.secondary:hover,
+button.ghost:hover,
+.btn.secondary:hover,
+.btn.ghost:hover,
+.outline:hover,
+.create-account:hover,
+.guest-button:hover {
+  background: rgba(124, 58, 237, .14) !important;
+  color: #fff !important;
+}
+
+/* Chat bubbles */
+.message,
+.bubble,
+.chat-bubble {
+  background: var(--panel) !important;
+  background-image: none !important;
+  border: 1px solid #1f2937 !important;
+  box-shadow: none !important;
+}
+
+.message.user,
+.bubble.user,
+.chat-bubble.user,
+.user-message {
+  background: rgba(124, 58, 237, .18) !important;
+  border-color: rgba(124, 58, 237, .42) !important;
+}
+
+/* Composer */
+.composer,
+.message-form,
+.chat-input,
+.input-bar {
+  background: #070b12 !important;
+  background-image: none !important;
+  border-top: 1px solid #1f2937 !important;
+  box-shadow: none !important;
+}
+
+/* Light mode: still clean, no gradients */
+html[data-theme="light"],
+body.light,
+.light {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --panel-soft: #f1f4f9;
+  --border: #d9e0ec;
+  --text: #111827;
+  --muted: #647084;
+}
+
+html[data-theme="light"] body,
+body.light,
+.light,
+html[data-theme="light"] #app,
+body.light #app {
+  background: var(--bg) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] header,
+body.light header,
+html[data-theme="light"] .topbar,
+body.light .topbar {
+  background: #f6f7fb !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .auth-screen,
+  .login-screen,
+  .account-screen,
+  .auth-wrap,
+  .auth-wrapper,
+  .auth-container,
+  .login-container,
+  .onboarding,
+  .guest-gate,
+  .sign-in-panel {
+    padding: 1rem !important;
+    align-items: flex-start !important;
+    padding-top: 5rem !important;
+  }
+
+  .chat-controls,
+  .conversation-controls,
+  .chat-switcher,
+  .chat-picker,
+  .chat-select-row,
+  .history-controls {
+    width: auto !important;
+    margin: 1rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  select {
+    width: 100% !important;
+  }
+}
