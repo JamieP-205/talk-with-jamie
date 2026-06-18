@@ -53,13 +53,13 @@ The app uses a static frontend served by Netlify alongside a serverless backend.
 
 ## Key files
 
-- `index.html` � frontend shell and metadata
-- `styles.css` � responsive public and admin interface styles
-- `app.js` � client state, rendering and API requests
-- `netlify/functions/api.js` � Netlify Function entry point
-- `netlify/functions/_lib.js` � authentication, storage, validation, provider and route logic
-- `test/` � unit tests for security-sensitive helpers and deployment controls
-- `tools/` � site validation and production migration guard
+- `index.html` - frontend shell and metadata
+- `styles.css` - responsive public and admin interface styles
+- `app.js` - client state, rendering and API requests
+- `netlify/functions/api.js` - Netlify Function entry point
+- `netlify/functions/_lib.js` - authentication, storage, validation, provider and route logic
+- `test/` - unit tests for security-sensitive helpers and deployment controls
+- `tools/` - site validation and production migration guard
 
 ## Technical approach
 
