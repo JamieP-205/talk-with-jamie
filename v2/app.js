@@ -289,7 +289,7 @@ function renderAuth() {
         ${avatar()}
         <div class="title">
           <h1>Jamie</h1>
-          <p>AI Jamie chat</p>
+          <p>Log in, create an account, or continue as a guest to try a clearly disclosed AI chat that replies in a Jamie-like style.</p>
         </div>
         ${themeButton()}
       </header>
@@ -305,7 +305,7 @@ function renderAuth() {
           <form class="stack" data-form="auth">
             <input class="input" id="username" autocomplete="username" autocapitalize="none" placeholder="Username" aria-label="Username" required>
             <input class="input" id="password" type="password" autocomplete="${loginActive ? "current-password" : "new-password"}" placeholder="Password" aria-label="Password" required>
-            <button class="btn" type="submit">${loginActive ? "Log in" : "Create account"}</button>
+            <button class="btn" type="submit">${loginActive ? "Continue" : "Create account"}</button>
           </form>
           ${loginActive ? "" : '<p class="muted auth-hint">Choose 3-24 letters, numbers, or underscores. The name jamie is reserved.</p>'}
           <button class="ghost full-width-action" type="button" data-action="guest-login">Continue as guest</button>

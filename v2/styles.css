@@ -42,7 +42,7 @@ img {
 .app {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   background: #070a10;
 }
 
@@ -667,58 +667,73 @@ select {
     font-size: 15px;
   }
 }
-/* Talk With Jamie terminal final fix */
+/* Talk With Jamie v2 deployed cleanup */
 :root {
-  --talk-terminal-final-fix: 1;
+  --talk-v2-deployed-cleanup: 1;
 }
 
-html,
-body,
-#app,
-.app,
-.messages,
-.center {
+/* Fix the huge blank gap caused by the toolbar sitting in the 1fr grid row */
+.app {
+  grid-template-rows: auto auto 1fr auto !important;
   background: #070a10 !important;
   background-image: none !important;
-}
-
-*,
-*::before,
-*::after {
-  background-image: none !important;
-  box-shadow: none !important;
-}
-
-body::before,
-body::after,
-#app::before,
-#app::after,
-.app::before,
-.app::after,
-main::before,
-main::after {
-  display: none !important;
-  content: none !important;
 }
 
 .header,
+.chat-toolbar,
+.messages,
 .composer,
-.chat-toolbar {
+.center {
   background: #070a10 !important;
   background-image: none !important;
   box-shadow: none !important;
+}
+
+.header,
+.composer {
   backdrop-filter: none !important;
 }
 
+.chat-toolbar {
+  padding: 0.9rem 1rem !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16) !important;
+}
+
+.messages {
+  min-height: 0 !important;
+  justify-content: flex-start !important;
+  padding-top: 1.25rem !important;
+}
+
+/* Auth screen: centre the actual form and stop the intro bubbles sitting above it */
+.messages:has(.card) {
+  min-height: calc(100vh - 86px) !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 2rem 1rem !important;
+}
+
+.messages:has(.card) > .row.them {
+  display: none !important;
+}
+
+.messages:has(.card) .card {
+  width: min(560px, calc(100vw - 2rem)) !important;
+  margin: 0 auto !important;
+  box-shadow: none !important;
+}
+
+/* Buttons: one solid purple, no gradients */
 .btn,
 .ghost,
 .danger,
 .active-tab,
-.composer button,
 .tabs button,
-.link-button,
-button,
-input[type="submit"] {
+.composer button,
+.full-width-action,
+button[data-action="auth-mode"],
+button[data-action="guest-login"],
+button[type="submit"] {
   background: #7c3aed !important;
   background-color: #7c3aed !important;
   background-image: none !important;
@@ -731,84 +746,70 @@ input[type="submit"] {
 .ghost:hover,
 .danger:hover,
 .active-tab:hover,
-.composer button:hover,
 .tabs button:hover,
-.link-button:hover,
-button:hover,
-input[type="submit"]:hover {
+.composer button:hover,
+.full-width-action:hover,
+button[data-action="auth-mode"]:hover,
+button[data-action="guest-login"]:hover,
+button[type="submit"]:hover {
   background: #8b5cf6 !important;
   background-color: #8b5cf6 !important;
   border-color: #8b5cf6 !important;
   transform: none !important;
 }
 
-.bubble.me,
-.row.me .bubble {
+/* User message bubble: solid purple */
+.row.me .bubble,
+.bubble.me {
   background: #7c3aed !important;
   background-color: #7c3aed !important;
   background-image: none !important;
-  border-color: #7c3aed !important;
   color: #ffffff !important;
+  border-color: #7c3aed !important;
 }
 
-.bubble.them,
-.row.them .bubble {
+/* Assistant bubble stays readable */
+.row.them .bubble,
+.bubble.them {
   background: #161b25 !important;
   background-image: none !important;
+  color: #f8fafc !important;
 }
 
-.messages:has(.card) {
-  min-height: calc(100vh - 76px) !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 2rem 1rem !important;
+/* Inputs/selects */
+.input,
+select,
+.composer textarea {
+  background: #111827 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: #273348 !important;
 }
 
-.messages:has(.card) .row,
-.messages:has(.card) .card {
-  width: min(560px, calc(100vw - 2rem)) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.center {
-  min-height: calc(100vh - 76px) !important;
-  display: grid !important;
-  place-items: center !important;
-  padding: 2rem !important;
-}
-
-.card {
-  margin: 0 auto !important;
-  box-shadow: none !important;
-}
-
+/* Light mode fixed properly */
 :root[data-theme="light"] body,
-:root[data-theme="light"] #app,
 :root[data-theme="light"] .app,
+:root[data-theme="light"] .header,
+:root[data-theme="light"] .chat-toolbar,
 :root[data-theme="light"] .messages,
+:root[data-theme="light"] .composer,
 :root[data-theme="light"] .center {
   background: #f6f7fb !important;
   background-image: none !important;
+  color: #111827 !important;
 }
 
-:root[data-theme="light"] .btn,
-:root[data-theme="light"] .ghost,
-:root[data-theme="light"] .danger,
-:root[data-theme="light"] .active-tab,
-:root[data-theme="light"] .composer button,
-:root[data-theme="light"] .tabs button,
-:root[data-theme="light"] .link-button,
-:root[data-theme="light"] button,
-:root[data-theme="light"] input[type="submit"] {
-  background: #7c3aed !important;
-  background-color: #7c3aed !important;
-  border-color: #7c3aed !important;
-  color: #ffffff !important;
+:root[data-theme="light"] .row.them .bubble,
+:root[data-theme="light"] .bubble.them {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
 }
 
-:root[data-theme="light"] .bubble.me,
-:root[data-theme="light"] .row.me .bubble {
-  background: #7c3aed !important;
-  color: #ffffff !important;
+:root[data-theme="light"] .input,
+:root[data-theme="light"] select,
+:root[data-theme="light"] .composer textarea {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
 }
