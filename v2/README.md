@@ -1,7 +1,9 @@
 # Talk With Jamie v2
 
-I built version 2 to solve the main weakness in the original project: the model had a generic
-prompt, but none of my evidence-backed writing style or personal context.
+This is the active Talk With Jamie application. I built it as a privacy-conscious retrieval and
+access-control experiment: public chat can use approved general information, while any deeper
+context stays server-side for the authenticated owner workspace. It is clearly labelled as AI and
+is not intended to impersonate the human Jamie.
 
 This folder is a complete Netlify deployment. It adds private context retrieval while keeping
 raw personal exports and private source files out of the website and
@@ -15,7 +17,7 @@ out of GitHub.
 - Multiple persistent chats per account, with create, switch and delete controls
 - Direct OpenAI Responses API support with a configurable model
 - A local context builder that joins both sides of social conversations while keeping raw exports local
-- Cross-platform alias merging and context notes for recurring contacts
+- Cross-platform contact summaries for relevant owner-only retrieval
 - Verified owner facts and recency-aware handling for changing views
 - Redaction and exclusion rules for credentials, financial identifiers and high-risk content
 - Deployment-only context maintenance; the live admin interface cannot replace or delete the pack
@@ -26,8 +28,8 @@ out of GitHub.
 - Legacy login, conversation and admin-thread migration
 - Automated tests for context validation, ranking and privacy boundaries
 
-The application remains clearly labelled as AI. Context helps it choose wording and relevant
-background; it must not claim to be the human Jamie or expose source material.
+Context helps it choose wording and relevant background; it must not claim to be the human Jamie,
+expose source material or make private information available through public chat.
 
 ## Build The Private Context Pack
 
@@ -102,7 +104,6 @@ Manual CLI production deploys are reserved for recovery or a controlled migratio
 
 ## Important Privacy Boundary
 
-Raw social exports contain other people's messages and personal details. They are local source
-material, not deployable assets. The builder uses both sides to understand relationships, then
-stores a compact redacted pack rather than the original archives. Review the generated pack
-before maintenance upload.
+Private source material is local-only and is never a deployable asset. The builder creates a
+compact redacted pack for controlled owner retrieval rather than publishing original archives.
+Review the generated pack before maintenance upload.

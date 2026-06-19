@@ -12,19 +12,20 @@ The public experiment is available at [talkwithjamie.netlify.app](https://talkwi
 
 ## Summary
 
-Version 2 also supports one-time migration of legacy account hashes, conversations, and admin
-threads, multiple persistent chats per account, and contact-specific context notes built from locally held source exports. Its own deployment and privacy instructions are in
-[`v2/README.md`](v2/README.md).
+Talk With Jamie is a disclosed AI retrieval and access-control experiment with optional accounts,
+guest sessions, persistent conversations and private administration tools. Public chat uses only
+approved general background. More personal context is kept server-side for the authenticated owner
+workspace and is not available through public chat.
 
-Talk With Jamie is a clearly disclosed AI chat experiment with optional accounts, guest sessions, persistent conversations and private administration tools. The app identifies itself as AI and warns users not to submit sensitive information. It persists conversations for registered and guest users, supports rate limiting, provides an admin dashboard and can switch between OpenAI-compatible and Cohere providers.
+### Active codebase
 
-### Current recommended version
-
-The recommended deployment is in [`v2/`](v2/). The root app is preserved for migration and history. New development happens in the `v2` folder. The migration guard prevents accidental replacement of the existing production backend until [MIGRATION.md](MIGRATION.md) is complete.
+[`v2/`](v2/) is the active deployment and the place for new development. The root application is
+kept for migration history and compatibility notes; its version-specific setup and privacy details
+are in [`v2/README.md`](v2/README.md).
 
 ## Architecture overview
 
-The app uses a static frontend served by Netlify alongside a serverless backend. Authenticated and guest users interact with Netlify Functions through signed `HttpOnly` cookies. Persistent users, conversations and rate limits are stored in Netlify Blobs. A separate admin interface retrieves a private context pack and allows conversation viewing, blocking and deletion. The configured AI provider (OpenAI-compatible or Cohere) generates responses based on a compact, redacted context pack.
+The app uses a static frontend served by Netlify alongside a serverless backend. Authenticated and guest users interact with Netlify Functions through signed `HttpOnly` cookies. Persistent users, conversations and rate limits are stored in Netlify Blobs. The owner workspace can use a protected context pack, while public chat stays limited to approved general information. The configured AI provider generates responses from selected context rather than exposing source material.
 
 | Talk With Jamie architecture |
 | --- |
@@ -98,4 +99,3 @@ This project taught me how to build a privacy-conscious AI chat application from
 - Add client-side accessibility enhancements for screen-reader users
 - Explore additional AI providers and experiment with retrieval based responses
 - Build analytics dashboards to understand usage patterns while respecting user privacy
-
